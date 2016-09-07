@@ -1,0 +1,123 @@
+    body {
+    background-image: url("background.png");
+    background-size: 100%;
+    height: 100%;
+}
+
+.completed {
+    text-decoration: Line-through;
+    font-style: italic;
+    color: lightgray;
+}
+
+.red {
+    color: red;
+    font-weight: bold;
+}
+
+.green {
+    color: greenyellow;
+    font-weight: bold;
+}
+.bold {
+    font-weight: bold;
+}
+
+textarea {
+    resize: none;
+}
+
+form {
+    margin: auto;
+}
+
+h3,
+h2 {
+    text-align: center;
+    font-weight: bold;
+}
+
+input {
+    font-size: 12px;
+    text-align: center;
+}
+
+.title {
+    border-radius: 8px;
+    padding: 10px 24px;
+    background-color: transparent;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: aliceblue;
+}
+
+.description {
+    height: 280px;
+    width: 400px;
+    margin: auto;
+    padding: 30px;
+}
+
+.description1 {
+    height: 280px;
+    width: 300px;
+    border-radius: 4px;
+    padding: 10px 24px;
+    background-color: transparent;
+    color: aliceblue;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.divA {
+    height: 55px;
+}
+
+.btn1 {
+    margin-left: 20px;
+}
+
+.descriptionEdit {
+    height: 200px;
+    width: 100%;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.titleEdit {
+    height: 55px;
+}
+
+.titleEdit1 {
+    margin-top: 8px;
+}
+
+.litle_space {
+    margin-bottom: 20px;
+}
+
+.btn2 {
+  
+    border-radius: 4px;
+    background-color: transparent;
+    border: 2px solid lightgray;
+}
+h2{
+    font-family: fantasy;
+    color: aliceblue;
+}
+img {
+    height: 210px;
+    width: 170px;
+    border: 2px solid silver;
+    border-radius: 4px;
+    margin: auto;
+}
+.opacity{
+    opacity: 0.1;
+}
+.img_input{
+    height: 30px;
+    width: 500px;
+    border: 2px solid lightgray;
+    border-radius: 8px;
+    margin: auto;
+}
