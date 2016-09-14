@@ -1,14 +1,21 @@
 var app = angular.module("PostApp");
 
-app.controller("PostListController", ["$scope", "PostService", function ($scope, PostService) {
+app.controller("PostListController", ["$scope", "PostService", "StoreService", function ($scope, PostService, StoreService) {
     $scope.PostService = PostService;
+    $scope.StoreService = StoreService;
+
     $scope.editing = false;
     var postCopy = {};
-    // $scope.PostList = PostService.PostList;
+    StoreService.getStores().then(function(response) {
+//        console.log(response.data);
+    });
 
-    PostService.getPosts();
+    PostService.getPosts().then(function(data) {
+        console.log(data);
+    });
 
     $scope.addPost = function (newPost) {
+        //        console.log("new post from drop down: " + newPost.selectedStore)
         PostService.addPost(newPost).then(function () {
             $scope.newPost = {};
         });
@@ -16,13 +23,14 @@ app.controller("PostListController", ["$scope", "PostService", function ($scope,
 
     $scope.deletePost = function (Post, index) {
         PostService.deletePost(Post, index);
-
     };
+
     $scope.updatePost = function (Post) {
         PostService.UpdatePost(Post).then(function () {
             Post.editing = false;
         });
     };
+
     $scope.likesPost = function (Post, index) {
         Post.likes = Post.likes + 1;
         PostService.UpdatePost(Post, index);
@@ -35,6 +43,7 @@ app.controller("PostListController", ["$scope", "PostService", function ($scope,
 
     $scope.edit = function (post) {
         postCopy = angular.copy(post);
+        //        console.log(post);
         post.editing = true;
     };
 

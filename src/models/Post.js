@@ -3,20 +3,30 @@ var PostSchema = new mongoose.Schema({
 
     title: {
         type: String,
-        required: true,
-        
+        required: true
+
     },
     description: String,
     completed: {
         type: Boolean,
         default: false
     },
-   
+
     likes: {
-    type:Number
+        type: Number
     },
-    img_url:{
-        type:String
+    img_url: {
+        type: String
+    },
+    store: {
+        "name": String,
+        "id": {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Store",
+            required: true,
+        }
     }
 });
+
+
 module.exports = mongoose.model("Post", PostSchema);

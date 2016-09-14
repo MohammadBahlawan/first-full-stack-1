@@ -18,6 +18,11 @@
                                     {{Post.description}}
                                 </label>
                                 <textarea type="text" class="descriptionEdit" ng-show="Post.editing" ng-model="Post.description"></textarea>
+                                <h4 class="store pull-right" ng-hide="Post.editing">Store: {{Post.store.name}}</h4>
+                                <!--                               <input type="text" class="form-control" ng-show="Post.editing" ng-model="Post.store[0].name">-->
+
+                                <select ng-model="Post.store" ng-show="Post.editing" ng-options="store.name for store in StoreService.StoreList">
+                                </select>
                             </div>
 
 
