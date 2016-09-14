@@ -18,6 +18,11 @@
                                     {{Post.description}}
                                 </label>
                                 <textarea type="text" class="descriptionEdit" ng-show="Post.editing" ng-model="Post.description"></textarea>
+                                <h4 class="store pull-right" ng-hide="Post.editing">Store: {{Post.store.name}}</h4>
+                                <!--                               <input type="text" class="form-control" ng-show="Post.editing" ng-model="Post.store[0].name">-->
+
+                                <select ng-model="Post.store" ng-show="Post.editing" ng-options="store.name for store in StoreService.StoreList track by store._id">
+                                </select>
                             </div>
 
 
@@ -26,10 +31,10 @@
 
                             <button class=" btn1 btn btn-info btn-md glyphicon glyphicon-thumbs-up pull-right" ng-click="likesPost(Post, $index)"></button>
                             <button class=" btn1 btn btn-info btn-md glyphicon glyphicon-thumbs-down pull-right" ng-click="unlikesPost(Post, $index)"></button>
-                            <button class=" btn1 btn btn-danger btn-md glyphicon glyphicon-trash pull-right" ng-click="deletePost(Post._id)"></button>
-                            <button class=" btn1 btn btn-warning btn-md glyphicon glyphicon-pencil pull-right" ng-click="Post.editing = true" ng-hide="Post.editing"></button>
+                            <button class=" btn1 btn btn-danger btn-md glyphicon glyphicon-trash pull-right" ng-click="deletePost(Post._id, $index)"></button>
+                            <button class=" btn1 btn btn-warning btn-md glyphicon glyphicon-pencil pull-right" ng-click="edit(Post)" ng-hide="Post.editing"></button>
                             <button class=" btn1 btn btn-success btn-md glyphicon glyphicon-floppy-saved pull-right" ng-click="updatePost(Post, $index)" ng-show="Post.editing"></button>
-                            <button class=" btn1 btn btn-primary btn-md glyphicon glyphicon-floppy-remove pull-right" ng-click="Post.editing = false" ng-show="Post.editing"></button>
+                            <button class=" btn1 btn btn-primary btn-md glyphicon glyphicon-floppy-remove pull-right" ng-click="cancelEdit(Post)" ng-show="Post.editing"></button>
                             <input class="pull-right img_input" type="text" ng-show="Post.editing" ng-model="Post.img_url">
                             <h4 ng-class="{'red' : Post.likes<=0, 'green' : Post.likes>0}">Likes:{{Post.likes}}</h4>
 

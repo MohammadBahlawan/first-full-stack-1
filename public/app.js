@@ -1,4 +1,4 @@
-var app = angular.module("PostApp", ["ngRoute"]);
+var app = angular.module("PostApp", ["ngRoute","PostApp.Auth"]);
 
 app.config(["$routeProvider", function ($routeProvider) {
     $routeProvider
@@ -10,4 +10,7 @@ app.config(["$routeProvider", function ($routeProvider) {
             templateUrl: "components/new-Post/new-Post.html",
             controller: "PostListController"
         });
+// .when("/login", {
+//            templateUrl: "components/auth/login/login.html"
+//        });
 }]);

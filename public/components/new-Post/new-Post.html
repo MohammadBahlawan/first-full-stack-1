@@ -12,6 +12,14 @@
         <div class="description">
             <textarea rows="10" cols="50" placeholder="description" class="form-control description1" ng-model="newPost.description"></textarea>
         </div>
+<!--
+        <select ng-model="selectedName" ng-options="x for x in names">
+</select>
+-->
+    <div class="store1"><select ng-model="newPost.store" ng-options="option as option.name for option in StoreService.StoreList">
+</select></div> 
+
+       
         <button class="btn btn-primary btn2 center-block" ng-click="addPost(newPost)">Add Post</button>
     </form>
 
