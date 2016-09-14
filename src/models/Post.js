@@ -4,27 +4,21 @@ var PostSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true
-
     },
     description: String,
     completed: {
         type: Boolean,
         default: false
     },
-
     likes: {
-        type: Number
+        type: Number,
+        default: 0
     },
-    img_url: {
-        type: String
-    },
+    img_url: String,
     store: {
-        "name": String,
-        "id": {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Store",
-            required: true,
-        }
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Store",
+        required: true
     }
 });
 
