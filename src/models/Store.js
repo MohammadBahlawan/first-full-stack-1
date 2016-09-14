@@ -5,6 +5,9 @@ var storeSchema = new mongoose.Schema({
         required: true
     },
     brand: String,
-    type: String
+    type: {
+        type: String
+    }
 });
+
 module.exports = mongoose.model("Store", storeSchema);

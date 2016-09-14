@@ -13,7 +13,6 @@ app.service("PostService", ["$http", function ($http) {
     this.getPosts = function () {
         return $http.get("/api/Post").then(function (response) {
             self.PostList = response.data;
-            console.log(self.PostList);
             return response.data;
         });
     }

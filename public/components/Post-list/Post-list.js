@@ -7,7 +7,7 @@ app.controller("PostListController", ["$scope", "PostService", "StoreService", f
     $scope.editing = false;
     var postCopy = {};
     StoreService.getStores().then(function(response) {
-//        console.log(response.data);
+        console.log(response.data);
     });
 
     PostService.getPosts().then(function(data) {
