@@ -34,7 +34,7 @@ app.service("PostService", ["$http", function ($http) {
         return $http.put("/api/Post/" + Post._id, Post).then(function (response) {
             for (var i = 0; i < self.PostList.length; i++) {
                 if (self.PostList[i]._id === response.data._id) {
-                    self.PostList[i] = response.data;
+                    self.PostList[i] = Post;
                 }
             }
         });

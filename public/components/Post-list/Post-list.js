@@ -6,13 +6,9 @@ app.controller("PostListController", ["$scope", "PostService", "StoreService", f
 
     $scope.editing = false;
     var postCopy = {};
-    StoreService.getStores().then(function(response) {
-        console.log(response.data);
-    });
+    StoreService.getStores();
 
-    PostService.getPosts().then(function(data) {
-        console.log(data);
-    });
+    PostService.getPosts();
 
     $scope.addPost = function (newPost) {
         //        console.log("new post from drop down: " + newPost.selectedStore)
@@ -25,7 +21,7 @@ app.controller("PostListController", ["$scope", "PostService", "StoreService", f
         PostService.deletePost(Post, index);
     };
 
-    $scope.updatePost = function (Post) {
+    $scope.updatePost = function (Post, index) {
         PostService.UpdatePost(Post).then(function () {
             Post.editing = false;
         });
@@ -49,9 +45,11 @@ app.controller("PostListController", ["$scope", "PostService", "StoreService", f
 
     $scope.cancelEdit = function (post) {
         post.editing = false;
-        post.title = postCopy.title
-        post.description = postCopy.description
-        post.img_url = postCopy.img_url
+        post.title = postCopy.title;
+        post.store = postCopy.store;
+        post.likes = postCopy.likes;
+        post.completed = postCopy.completed;
+        
     };
 
  }]);

@@ -25,7 +25,8 @@ PostRoutes.route("/")
         });
     });
 
-PostRoutes.route("/:id").get(function (req, res) {
+PostRoutes.route("/:id")
+    .get(function (req, res) {
         Post.findById(req.params.id, function (err, PostObj) {
             if (err) {
                 res.status(500).send(err);
