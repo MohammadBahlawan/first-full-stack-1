@@ -3,27 +3,28 @@ var PostRoutes = express.Router();
 var Post = require("../models/Post");
 PostRoutes.route("/")
     .get(function (req, res) {
-        Post.find(function (err, Posts) {
-            if (err) {
-                res.status(500).send(err);
-            } else {
-                res.send(Posts);
-            }
-        });
+        Post.find()
+            .populate("store")
+            .exec(function (err, posts) {
+                if (err) {
+                    res.status(500).send(err);
+                } else {
+                    res.send(posts);
+                }
+            });
     })
     .post(function (req, res) {
         var newPost = new Post(req.body)
-        newPost.likes = 0;
-        newPost.save(function (err, newPostObj) {
+        newPost.save(function (err) {
             if (err) {
                 console.log(err);
                 res.status(500).send(err);
             } else {
-                res.send(newPostObj);
+                res.send(newPost);
             }
-
         });
     });
+
 PostRoutes.route("/:id").get(function (req, res) {
         Post.findById(req.params.id, function (err, PostObj) {
             if (err) {
@@ -52,9 +53,9 @@ PostRoutes.route("/:id").get(function (req, res) {
             } else {
                 var responseObj = {
                     success: true,
-                    massage : "Successfully deleted the Post",
-                    Post:deletedPost
-                    };
+                    massage: "Successfully deleted the Post",
+                    Post: deletedPost
+                };
                 res.send(responseObj);
             }
 
